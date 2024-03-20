@@ -16,11 +16,15 @@
 
 <body data-bs-theme="dark">
 
-    <div id="app">
-        <div class="container mt-5">
+    <div id="app" style="background-color: #1D2D3C;">
+        <?php
+            require './partials/navbar.php'
+        ?>
+
+        <div class="container py-5">
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col" v-for="disk in disks">
-                    <div class="card h-100 text-center">
+                    <div class="card h-100 text-center" style="background-color: #112030;">
                         <img :src="disk.poster" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ disk.title }}</h5>
