@@ -1,0 +1,19 @@
+#app{
+    background-color: #1D2D3C;
+}
+
+nav{
+    background-color: #06131F;
+}
+
+.modal-header{
+    border: none;
+}
+
+.modal-content{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.card{
+    background-color: #112030;
+}

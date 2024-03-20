@@ -7,6 +7,8 @@
     <title>Document</title>
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- my css -->
+    <link rel="stylesheet" href="./styles/general.css">
     <!-- vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- axios -->
@@ -16,24 +18,39 @@
 
 <body data-bs-theme="dark">
 
-    <div id="app" style="background-color: #1D2D3C;">
+    <div id="app">
         <?php
-            require './partials/navbar.php'
+        require './partials/navbar.php'
         ?>
 
         <div class="container py-5">
             <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col" v-for="disk in disks">
-                    <div class="card h-100 text-center" style="background-color: #112030;">
+                <div class="col" v-for="(disk, index) in disks">
+                    <div class="h-100" data-bs-toggle="modal" data-bs-target="#diskModal" @click="getDiskData(index)">
                         <img :src="disk.poster" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ disk.title }}</h5>
-                            <div>{{ disk.author }}</div>
-                            <h4>{{ disk.year }}</h4>
-                        </div>
                     </div>
                 </div>
-                
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="diskModal" tabindex="-1" aria-labelledby="diskModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <div class="card h-100 text-center" data-bs-toggle="modal" data-bs-target="#diskModal" @click="getDiskData(index)">
+                        <img :src="currentDiskData.poster" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ currentDiskData.title }}</h5>
+                            <div>{{currentDiskData.author}}</div>
+                            <h4>{{currentDiskData.year}}</h4>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
