@@ -19,19 +19,23 @@
 <body data-bs-theme="dark">
 
     <div id="app">
+        <!-- navbar -->
         <?php
         require './partials/navbar.php'
         ?>
 
-        <div class="container py-5">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col" v-for="(disk, index) in disks">
-                    <div class="h-100" data-bs-toggle="modal" data-bs-target="#diskModal" @click="getDiskData(index)">
-                        <img :src="disk.poster" class="card-img-top" alt="...">
+        <!-- page content -->
+        <main>
+            <div class="container py-5">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col" v-for="(disk, index) in disks">
+                        <div class="poster h-100" data-bs-toggle="modal" data-bs-target="#diskModal" @click="getDiskData(index)">
+                            <img :src="disk.poster" class="card-img-top" alt="...">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
 
         <!-- Modal -->
         <div class="modal fade" id="diskModal" tabindex="-1" aria-labelledby="diskModalLabel" aria-hidden="true">

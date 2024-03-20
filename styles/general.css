@@ -1,9 +1,33 @@
-#app{
+body{
     background-color: #1D2D3C;
+    height: 100vh;
 }
 
 nav{
     background-color: #06131F;
+}
+
+main{
+    height: calc(100vh - 59px); /* viewport - navbar */
+    overflow: auto;
+}
+
+main::-webkit-scrollbar{
+    width: 5px;
+}
+
+main::-webkit-scrollbar-thumb{
+    border-radius: 2px;
+    background-color: gray;
+}
+
+.poster{
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.poster:hover{
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .modal-header{
